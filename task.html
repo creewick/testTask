@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тестовая задача для головоломок</title>
+        <style>
+            input:invalid {
+                background-color: lightcoral;
+            }
+            input:not(:invalid) {
+                background-color: lightgreen;
+            }
+        </style>
+        <script>
+            function check(input) {
+                if (input.value === "меняНеВзломают") {
+                    input.setCustomValidity('');
+                    input.disabled = true;
+                    input.parentElement.innerHTML += "Верно";
+                } else {
+                    input.setCustomValidity('Неверный пароль');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return false">
+            <label>Введите пароль:</label>
+            <input type="text" oninput="check(this)"></input>
+        </form>
+    </body>
+</html>
